@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Activities | KCEBED</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/media.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+
+    <div id="navbar"></div>
+    <script>
+    fetch("components/navbar.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("navbar").innerHTML = data;
+      });
+    </script>
+
+    <div class="page-header">
+      <div class="container">
+        <h1>Activities</h1>
+        <p>Home / Activities</p>
+      </div>
+    </div>
+
+    <section class="section-padding">
+      <div class="container">
+        <main class="content-area">
+          <h2>Co-Curricular and Extra-Curricular Activities</h2>
+          <p>
+            At Kasturbai College of Education, we believe in holistic development of students. Our college promotes a vibrant culture of co-curricular and extra-curricular activities that complement the academic curriculum and foster overall personality development.
+          </p>
+
+          <h3>Sports Activities</h3>
+          <p>
+            Our sports program encourages students to participate in various athletic competitions. We organize inter-college tournaments and provide training facilities for:
+          </p>
+          <ul style="margin-left: 40px; line-height: 2;">
+            <li>Badminton</li>
+            <li>Volleyball</li>
+            <li>Cricket</li>
+            <li>Kabaddi</li>
+            <li>Table Tennis</li>
+            <li>Athletic Events</li>
+          </ul>
+
+          <h3>Cultural Programs</h3>
+          <p>
+            Cultural activities play a vital role in building a sense of community and preserving traditions. We organize:
+          </p>
+          <ul style="margin-left: 40px; line-height: 2;">
+            <li>Annual College Fest</li>
+            <li>Marathi Day Celebrations</li>
+            <li>Independence Day and Republic Day Events</li>
+            <li>Classical Music and Dance Performances</li>
+            <li>Literary Competitions</li>
+            <li>Drama and Theatre Workshops</li>
+          </ul>
+
+          <h3>Professional Development Programs</h3>
+          <div class="highlight-box">
+            <ul>
+              <li>Skill Development Workshops</li>
+              <li>Personality Development Sessions</li>
+              <li>Communication Skills Training</li>
+              <li>Leadership and Team Building Activities</li>
+              <li>Subject-Related Seminars and Conferences</li>
+              <li>Research Paper Presentations</li>
+            </ul>
+          </div>
+
+          <h3>Social Outreach Programs</h3>
+          <p>
+            Students engage in community service and social awareness programs:
+          </p>
+          <ul style="margin-left: 40px; line-height: 2;">
+            <li>Health and Hygiene Awareness Camps</li>
+            <li>Environmental Conservation Initiatives</li>
+            <li>Literacy and Adult Education Programs</li>
+            <li>Women Empowerment Campaigns</li>
+            <li>Disaster Relief Activities</li>
+          </ul>
+
+          <h3>Academic Clubs and Groups</h3>
+          <p>
+            Students can participate in subject-focused clubs that promote learning and research:
+          </p>
+          <ul style="margin-left: 40px; line-height: 2;">
+            <li>Science and Mathematics Club</li>
+            <li>Social Science Forum</li>
+            <li>Language and Literature Club</li>
+            <li>Educational Technology Group</li>
+            <li>Research and Innovation Cell</li>
+          </ul>
+
+          <div class="highlight-box" style="margin-top: 30px;">
+            <h4>Benefits of Participation</h4>
+            <p>
+              Participation in these activities helps students:
+            </p>
+            <ul style="margin-left: 20px;">
+              <li>Develop leadership and communication skills</li>
+              <li>Build teamwork and collaboration abilities</li>
+              <li>Enhance self-confidence and personality</li>
+              <li>Promote social responsibility and citizenship</li>
+              <li>Create lasting friendships and networks</li>
+              <li>Balance academic and personal growth</li>
+            </ul>
+          </div>
+
+        </main>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Kasturbai College of Education. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>

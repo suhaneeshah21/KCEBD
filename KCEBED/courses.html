@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Courses | KCEBED</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/media.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+
+
+    <div id="navbar"></div>
+    <script>
+    fetch("components/navbar.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("navbar").innerHTML = data;
+      });
+    </script>
+
+    
+
+    <div class="page-header">
+      <div class="container">
+        <h1>Courses</h1>
+        <p>Home / Courses</p>
+      </div>
+    </div>
+
+    <section class="section-padding">
+      <div class="container page-layout">
+
+        <aside class="sidebar">
+          <div class="sidebar-widget">
+            <h3>Academic Programs</h3>
+            <ul class="sidebar-menu">
+              <li>
+                <a href="#" class="active-link course-link" data-component="components/Courses/BED.html">Bachelor of Education (B.Ed)</a>
+              </li>
+              <li><a href="#" class="course-link" data-component="components/Courses/MED.html">Master of Education (M.Ed)</a></li>
+              <li><a href="#" class="course-link" data-component="components/Courses/DSM.html">Diploma in School Managenemnt (DSM)</a></li>
+              <li><a href="#" class="course-link" data-component="components/Courses/MA.html">Master of Arts(MA)</a></li>
+              <li><a href="#" class="course-link" data-component="components/Courses/pHD.html">Ph. D. (Education)</a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <div id="courses-content" class="content-area"></div>
+
+        
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Kasturbai College of Education. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
