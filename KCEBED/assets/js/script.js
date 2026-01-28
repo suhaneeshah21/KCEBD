@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Mobile nav toggle
+  function initNavbar(){
   const hamburger = document.getElementById("hamburger");
   const navLinks = document.getElementById("navLinks");
 
@@ -17,6 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+  }
+  
+  initNavbar();
 
   // Scroll to top button
   const mybutton = document.getElementById("scrollToTop");
@@ -204,6 +208,120 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const initial = document.querySelector(".about-link.active-link[data-component]") || aboutLinks[0];
+    if (initial) {
+      loadSection(initial.getAttribute("data-component"));
+    }
+  }
+
+  // Career page dynamic loader for components/Career/*
+  const careerLinks = document.querySelectorAll(".career-link[data-component]");
+  const careerContent = document.getElementById("activities-content");
+
+  if (careerLinks.length && careerContent) {
+    const setActive = (target) => {
+      careerLinks.forEach((lnk) => lnk.classList.remove("active-link"));
+      target.classList.add("active-link");
+    };
+
+    const loadSection = (path) => {
+      fetch(path)
+        .then((res) => (res.ok ? res.text() : Promise.reject(res.status)))
+        .then((html) => {
+          careerContent.innerHTML = html;
+        })
+        .catch(() => {
+          careerContent.innerHTML =
+            "<p style='padding: 20px;'>Content is unavailable right now. Please try again later.</p>";
+        });
+    };
+
+    careerLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const component = link.getAttribute("data-component");
+        if (!component) return;
+        setActive(link);
+        loadSection(component);
+      });
+    });
+
+    const initial = document.querySelector(".career-link.active-link[data-component]") || careerLinks[0];
+    if (initial) {
+      loadSection(initial.getAttribute("data-component"));
+    }
+  }
+
+  // Activities page dynamic loader for components/Activities/*
+  const activitiesLinks = document.querySelectorAll(".activities-link[data-component]");
+  const activitiesContent = document.getElementById("activities-content");
+
+  if (activitiesLinks.length && activitiesContent) {
+    const setActive = (target) => {
+      activitiesLinks.forEach((lnk) => lnk.classList.remove("active-link"));
+      target.classList.add("active-link");
+    };
+
+    const loadSection = (path) => {
+      fetch(path)
+        .then((res) => (res.ok ? res.text() : Promise.reject(res.status)))
+        .then((html) => {
+          activitiesContent.innerHTML = html;
+        })
+        .catch(() => {
+          activitiesContent.innerHTML =
+            "<p style='padding: 20px;'>Content is unavailable right now. Please try again later.</p>";
+        });
+    };
+
+    activitiesLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const component = link.getAttribute("data-component");
+        if (!component) return;
+        setActive(link);
+        loadSection(component);
+      });
+    });
+
+    const initial = document.querySelector(".activities-link.active-link[data-component]") || activitiesLinks[0];
+    if (initial) {
+      loadSection(initial.getAttribute("data-component"));
+    }
+  }
+
+  // Alumni page dynamic loader for components/Alumini/*
+  const alumniLinks = document.querySelectorAll(".alumni-link[data-component]");
+  const alumniContent = document.getElementById("activities-content");
+
+  if (alumniLinks.length && alumniContent) {
+    const setActive = (target) => {
+      alumniLinks.forEach((lnk) => lnk.classList.remove("active-link"));
+      target.classList.add("active-link");
+    };
+
+    const loadSection = (path) => {
+      fetch(path)
+        .then((res) => (res.ok ? res.text() : Promise.reject(res.status)))
+        .then((html) => {
+          alumniContent.innerHTML = html;
+        })
+        .catch(() => {
+          alumniContent.innerHTML =
+            "<p style='padding: 20px;'>Content is unavailable right now. Please try again later.</p>";
+        });
+    };
+
+    alumniLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const component = link.getAttribute("data-component");
+        if (!component) return;
+        setActive(link);
+        loadSection(component);
+      });
+    });
+
+    const initial = document.querySelector(".alumni-link.active-link[data-component]") || alumniLinks[0];
     if (initial) {
       loadSection(initial.getAttribute("data-component"));
     }

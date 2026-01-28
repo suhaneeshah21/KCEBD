@@ -1,55 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Activities | KCEBED</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/media.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-
-    <div id="navbar"></div>
-    <script>
-    fetch("components/navbar.html")
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById("navbar").innerHTML = data;
-      });
-    </script>
-
-    <div class="page-header">
-      <div class="container">
-        <h1>Activities</h1>
-        <p>Home / Activities</p>
-      </div>
-    </div>
-
-    <section class="section-padding">
-      <div class="container page-layout">
-
-
-
-        <aside class="sidebar">
-          <div class="sidebar-widget">
-            <h3>Activities</h3>
-            <ul class="sidebar-menu">
-              <li>
-                <a href="#" class="active-link activities-link" data-component="components/Activities/activity.html">Activities</a>
-              </li>
-              
-          </div>
-        </aside>
-
-        <div id="activities-content" class="content-area"></div>
-
-     </div>
-
-        <!-- <main class="content-area">
+<main class="content-area">
           <h2>Co-Curricular and Extra-Curricular Activities</h2>
           <p>
             At Kasturbai College of Education, we believe in holistic development of students. Our college promotes a vibrant culture of co-curricular and extra-curricular activities that complement the academic curriculum and foster overall personality development.
@@ -132,16 +81,4 @@
             </ul>
           </div>
 
-        </main> -->
-      </div>
-    </section>
-
-    <footer>
-      <div class="container">
-        <p>&copy; 2025 Kasturbai College of Education. All Rights Reserved.</p>
-      </div>
-    </footer>
-
-    <script src="assets/js/script.js"></script>
-  </body>
-</html>
+        </main>

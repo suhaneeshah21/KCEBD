@@ -1,6 +1,8 @@
 @media (max-width: 1024px) {
   .container {
-    width: 95%;
+    width: 100%;
+    padding-left: 12px;
+    padding-right: 12px;
   }
 
   .page-layout {
@@ -51,23 +53,35 @@
     transition: all 0.3s ease-in-out;
   }
 
+
+  .hamburger.toggle span:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 10px);
+  }
+  .hamburger.toggle span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.toggle span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+
+  
   .nav-links {
     position: absolute;
     top: 70px;
     right: 0;
-    height: 0;
+    max-height: 0;
     width: 100%;
     background: var(--white);
     flex-direction: column;
     align-items: center;
     overflow: hidden;
-    transition: height 0.4s ease;
+    transition: max-height 0.4s ease;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
     gap: 0;
+    z-index: 999;
   }
   .nav-links.active {
-    height: 350px;
-    border-top: 2px solid var(--accent-gold);
+    max-height: 80vh;
   }
   .nav-links li {
     width: 100%;
@@ -87,7 +101,8 @@
   }
 
   .hero-section {
-    height: 400px;
+    height: auto;
+    padding: 40px 0;
     text-align: center;
   }
   .hero-text h2 {
@@ -118,6 +133,9 @@
   }
 
   .course-table {
-    font-size: 14px;
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
   }
 }
