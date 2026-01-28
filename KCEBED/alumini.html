@@ -1,59 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alumni | KCEBED</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/media.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alumni | KCEBED</title>
 
-    <div id="navbar"></div>
-    <script>
-    fetch("components/navbar.html")
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById("navbar").innerHTML = data;
-      });
-    </script>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/media.css" />
 
-    <div class="page-header">
-      <div class="container">
-        <h1>Alumni Network</h1>
-        <p>Home / Alumni</p>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div id="navbar"></div>
+<script>
+  fetch("components/navbar.html")
+          .then(res => res.text())
+          .then(data => {
+            document.getElementById("navbar").innerHTML = data;
+
+            const hamburger = document.getElementById("hamburger");
+            const navLinks = document.getElementById("navLinks");
+
+            if (hamburger && navLinks) {
+              hamburger.addEventListener("click", () => {
+                navLinks.classList.toggle("active");
+              });
+            }
+          });
+</script>
+
+<div class="page-header">
+  <div class="container">
+    <h1>Alumni Network</h1>
+    <p>Home / Alumni</p>
+  </div>
+</div>
+
+<section class="section-padding">
+  <div class="container page-layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-widget">
+        <h3>Alumni</h3>
+        <ul class="sidebar-menu">
+          <li>
+            <a href="#"
+               class="active-link alumni-link"
+               data-component="components/Alumini/alumini_temp.html">
+              <i class="fa-solid fa-user-graduate"></i> Alumni
+            </a>
+          </li>
+        </ul>
       </div>
-    </div>
+    </aside>
 
-    <section class="section-padding">
-      <div class="container page-layout">
+    <div id="activities-content" class="content-area"></div>
 
-        <aside class="sidebar">
-          <div class="sidebar-widget">
-            <h3>Alumini</h3>
-            <ul class="sidebar-menu">
-              <li>
-                <a href="#" class="active-link alumni-link" data-component="components/Alumini/alumini_temp.html">Alumini</a>
-              </li>
-              
-          </div>
-        </aside>
+  </div>
+</section>
 
-        <div id="activities-content" class="content-area"></div>
+<footer>
+  <div class="container">
+    <p>&copy; 2025 Kasturbai College of Education. All Rights Reserved.</p>
+  </div>
+</footer>
 
-     </div>
-    </section>
+<script src="assets/js/script.js"></script>
 
-    <footer>
-      <div class="container">
-        <p>&copy; 2025 Kasturbai College of Education. All Rights Reserved.</p>
-      </div>
-    </footer>
-
-    <script src="assets/js/script.js"></script>
-  </body>
+</body>
 </html>

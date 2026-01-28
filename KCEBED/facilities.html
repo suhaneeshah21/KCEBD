@@ -1,72 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Facilities | KCEBED</title>
-		<link rel="stylesheet" href="assets/css/style.css" />
-		<link rel="stylesheet" href="assets/css/media.css" />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
-			rel="stylesheet"
-		/>
-	</head>
-	<body>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Facilities | KCEBED</title>
 
+	<link rel="stylesheet" href="assets/css/style.css" />
+	<link rel="stylesheet" href="assets/css/media.css" />
 
-		<div id="navbar"></div>
-		<script>
-		fetch("components/navbar.html")
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div id="navbar"></div>
+<script>
+	fetch("components/navbar.html")
 			.then(res => res.text())
 			.then(data => {
 				document.getElementById("navbar").innerHTML = data;
+
+				const hamburger = document.getElementById('hamburger');
+				const navLinks = document.getElementById('navLinks');
+				if(hamburger && navLinks) {
+					hamburger.addEventListener('click', () => {
+						navLinks.classList.toggle('active');
+					});
+				}
 			});
-		</script>
+</script>
 
-		<div class="page-header">
-			<div class="container">
-				<h1>Facilities</h1>
-				<p>Home / Facilities</p>
+<div class="page-header">
+	<div class="container">
+		<h1>Facilities</h1>
+		<p>Home / Facilities</p>
+	</div>
+</div>
+
+<section class="section-padding">
+	<div class="container page-layout">
+
+		<aside class="sidebar">
+			<div class="sidebar-widget">
+				<h3>Campus Facilities</h3>
+				<ul class="sidebar-menu">
+					<li><a href="#" class="active-link facility-link" data-component="components/Facilities/ICT.html"><i class="fa-solid fa-laptop-code"></i> ICT & Ed Tech Lab</a></li>
+					<li><a href="#" class="facility-link" data-component="components/Facilities/PsychologyLab.html"><i class="fa-solid fa-brain"></i> Psychology Lab</a></li>
+					<li><a href="#" class="facility-link" data-component="components/Facilities/ScienceMath.html"><i class="fa-solid fa-flask"></i> Science & Math Lab</a></li>
+					<li><a href="#" class="facility-link" data-component="components/Facilities/SocialScience.html"><i class="fa-solid fa-earth-americas"></i> Social Science Lab</a></li>
+					<li><a href="#" class="facility-link" data-component="components/Facilities/LanguageLab.html"><i class="fa-solid fa-language"></i> Language Laboratory</a></li>
+				</ul>
 			</div>
-		</div>
 
-		<section class="section-padding">
-			<div class="container page-layout">
-
-				<aside class="sidebar">
-					<div class="sidebar-widget">
-						<h3>Campus Facilities</h3>
-						<ul class="sidebar-menu">
-						<li><a href="#" class="active-link facility-link" data-component="components/Facilities/ICT.html">Information Communication Technology and Educational Technology Curricular</a></li>
-						<li><a href="#" class="facility-link" data-component="components/Facilities/PsychologyLab.html">Educational Psychology Curriculum Laboratory</a></li>
-						<li><a href="#" class="facility-link" data-component="components/Facilities/ScienceMath.html">Science and Mathematics Curricular Laboratory</a></li>
-						<li><a href="#" class="facility-link" data-component="components/Facilities/SocialScience.html">Social Science Curricular Laboratory</a></li>
-						<li><a href="#" class="facility-link" data-component="components/Facilities/LanguageLab.html">Language Laboratory</a></li>
-					</ul>
-				</div>
-
-				<div class="sidebar-widget contact-widget">
-					<h3>Need Help?</h3>
-					<p>Reach out for facility access or support.</p>
-					<a
-						href="contact.html"
-						class="btn-primary"
-						style="display: inline-block; margin-top: 10px; font-size: 14px"
-						>Contact Us</a
-					>
-				</div>
-			</aside>
-
-			<div id="facilities-content" class="content-area"></div>
-		</section>
-
-		<footer>
-			<div class="container">
-				<p>&copy; 2025 Kasturbai College of Education. All Rights Reserved.</p>
+			<div class="sidebar-widget contact-widget">
+				<h3>Need Help?</h3>
+				<p>Reach out for facility access or support.</p>
+				<a href="contact.html" class="btn-primary" style="display: inline-block; margin-top: 10px; font-size: 14px">Contact Us</a>
 			</div>
-		</footer>
+		</aside>
 
-		<script src="assets/js/script.js"></script>
-	</body>
-	</html>
+		<div id="facilities-content" class="content-area"></div>
+	</div>
+</section>
 
+<footer>
+	<div class="container">
+		<p>&copy; 2025 Kasturbai College of Education. All Rights Reserved.</p>
+	</div>
+</footer>
+
+<script src="assets/js/script.js"></script>
+</body>
+</html>
