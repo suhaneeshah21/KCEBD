@@ -78,7 +78,7 @@ ul {
 }
 .grid-4 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
 .grid-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-.grid-2 { grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); }
+.grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
 
 .top-bar {
   background-color: #222;
@@ -438,7 +438,7 @@ ul {
 .course-table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 600px;
+  min-width: auto;
 }
 .course-table th, .course-table td {
   padding: 12px 15px;

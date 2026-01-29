@@ -79,7 +79,6 @@
     transform: rotate(-45deg) translate(7px, -7px);
   }
 
-  /* Dropdown menu */
   .nav-links {
     position: absolute;
     top: 70px;
@@ -161,13 +160,18 @@
     justify-content: center;
   }
 
-
-
-  .course-table {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
-    white-space: nowrap;
+  .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 15px;
   }
 
+  .result-card {
+    padding: 15px;
+  }
+
+  .stat-value {
+    font-size: 1.1rem;
+  }
 }
+
+
