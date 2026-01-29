@@ -25,7 +25,6 @@ body {
   font-family: "Open Sans", sans-serif;
   line-height: 1.6;
   color: var(--text-dark);
-  padding-top: 50px;
 }
 
 h1, h2, h3 {
@@ -98,8 +97,8 @@ ul {
   background: var(--white);
   padding: 15px 0;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  position: fixed;
-  top: 0;
+  position: sticky;
+  top: 36px;
   left: 0;
   width: 100%;
   z-index: 1000;

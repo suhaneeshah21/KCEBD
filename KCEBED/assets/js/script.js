@@ -1,28 +1,30 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Mobile nav toggle
-  function initNavbar(){
-  const hamburger = document.getElementById("hamburger");
-  const navLinks = document.getElementById("navLinks");
 
-  if (hamburger && navLinks) {
-    hamburger.addEventListener("click", () => {
-      navLinks.classList.toggle("active");
-      hamburger.classList.toggle("toggle");
-    });
+  window.initNavbar = function() {
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("navLinks");
 
-    const links = document.querySelectorAll(".nav-links li a");
-    links.forEach((link) => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("active");
-        hamburger.classList.remove("toggle");
+    if (hamburger && navLinks) {
+      const newHamburger = hamburger.cloneNode(true);
+      hamburger.parentNode.replaceChild(newHamburger, hamburger);
+
+      newHamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        newHamburger.classList.toggle("toggle");
       });
-    });
-  }
-  }
-  
+
+      const links = document.querySelectorAll(".nav-links li a");
+      links.forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+          newHamburger.classList.remove("toggle");
+        });
+      });
+    }
+  };
+
   initNavbar();
 
-  // Scroll to top button
   const mybutton = document.getElementById("scrollToTop");
 
   if (mybutton) {
@@ -40,7 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Courses page dynamic loader for components/Courses/*
   const courseLinks = document.querySelectorAll(".course-link[data-component]");
   const coursesContent = document.getElementById("courses-content");
 
@@ -49,25 +50,17 @@ document.addEventListener("DOMContentLoaded", () => {
       courseLinks.forEach((lnk) => lnk.classList.remove("active-link"));
       target.classList.add("active-link");
     };
-
-    const showLoading = () => {
-      coursesContent.innerHTML = "<p style='padding: 20px;'>Loading...</p>";
-    };
-
+    const showLoading = () => { coursesContent.innerHTML = "<p style='padding: 20px;'>Loading...</p>"; };
     const loadSection = (path) => {
       showLoading();
       fetch(path)
-        .then((res) => (res.ok ? res.text() : Promise.reject(res.status)))
-        .then((html) => {
-          coursesContent.innerHTML = html;
-        })
-        .catch((err) => {
-          console.error("Failed to load course section", path, err);
-          coursesContent.innerHTML =
-            "<p style='padding: 20px;'>Content is unavailable right now. Please try again later.</p>";
-        });
+          .then((res) => (res.ok ? res.text() : Promise.reject(res.status)))
+          .then((html) => { coursesContent.innerHTML = html; })
+          .catch((err) => {
+            console.error("Failed to load course section", path, err);
+            coursesContent.innerHTML = "<p style='padding: 20px;'>Content is unavailable right now.</p>";
+          });
     };
-
     courseLinks.forEach((link) => {
       link.addEventListener("click", (e) => {
         e.preventDefault();
@@ -77,15 +70,10 @@ document.addEventListener("DOMContentLoaded", () => {
         loadSection(component);
       });
     });
-
-    const initial =
-      document.querySelector(".course-link.active-link[data-component]") || courseLinks[0];
-    if (initial) {
-      loadSection(initial.getAttribute("data-component"));
-    }
+    const initial = document.querySelector(".course-link.active-link[data-component]") || courseLinks[0];
+    if (initial) loadSection(initial.getAttribute("data-component"));
   }
 
-  // Facilities page dynamic loader for components/Facilities/*
   const facilityLinks = document.querySelectorAll(".facility-link[data-component]");
   const facilitiesContent = document.getElementById("facilities-content");
 
@@ -94,25 +82,17 @@ document.addEventListener("DOMContentLoaded", () => {
       facilityLinks.forEach((lnk) => lnk.classList.remove("active-link"));
       target.classList.add("active-link");
     };
-
-    const showLoading = () => {
-      facilitiesContent.innerHTML = "<p style='padding: 20px;'>Loading...</p>";
-    };
-
+    const showLoading = () => { facilitiesContent.innerHTML = "<p style='padding: 20px;'>Loading...</p>"; };
     const loadSection = (path) => {
       showLoading();
       fetch(path)
-        .then((res) => (res.ok ? res.text() : Promise.reject(res.status)))
-        .then((html) => {
-          facilitiesContent.innerHTML = html;
-        })
-        .catch((err) => {
-          console.error("Failed to load facility section", path, err);
-          facilitiesContent.innerHTML =
-            "<p style='padding: 20px;'>Content is unavailable right now. Please try again later.</p>";
-        });
+          .then((res) => (res.ok ? res.text() : Promise.reject(res.status)))
+          .then((html) => { facilitiesContent.innerHTML = html; })
+          .catch((err) => {
+            console.error("Failed to load facility section", path, err);
+            facilitiesContent.innerHTML = "<p style='padding: 20px;'>Content is unavailable right now.</p>";
+          });
     };
-
     facilityLinks.forEach((link) => {
       link.addEventListener("click", (e) => {
         e.preventDefault();
@@ -122,15 +102,10 @@ document.addEventListener("DOMContentLoaded", () => {
         loadSection(component);
       });
     });
-
-    const initial =
-      document.querySelector(".facility-link.active-link[data-component]") || facilityLinks[0];
-    if (initial) {
-      loadSection(initial.getAttribute("data-component"));
-    }
+    const initial = document.querySelector(".facility-link.active-link[data-component]") || facilityLinks[0];
+    if (initial) loadSection(initial.getAttribute("data-component"));
   }
 
-  // Student Support page dynamic loader for components/student_support/*
   const supportLinks = document.querySelectorAll(".support-link[data-component]");
   const supportContent = document.getElementById("student-support-content");
 
@@ -139,25 +114,17 @@ document.addEventListener("DOMContentLoaded", () => {
       supportLinks.forEach((lnk) => lnk.classList.remove("active-link"));
       target.classList.add("active-link");
     };
-
-    const showLoading = () => {
-      supportContent.innerHTML = "<p style='padding: 20px;'>Loading...</p>";
-    };
-
+    const showLoading = () => { supportContent.innerHTML = "<p style='padding: 20px;'>Loading...</p>"; };
     const loadSection = (path) => {
       showLoading();
       fetch(path)
-        .then((res) => (res.ok ? res.text() : Promise.reject(res.status)))
-        .then((html) => {
-          supportContent.innerHTML = html;
-        })
-        .catch((err) => {
-          console.error("Failed to load student support section", path, err);
-          supportContent.innerHTML =
-            "<p style='padding: 20px;'>Content is unavailable right now. Please try again later.</p>";
-        });
+          .then((res) => (res.ok ? res.text() : Promise.reject(res.status)))
+          .then((html) => { supportContent.innerHTML = html; })
+          .catch((err) => {
+            console.error("Failed to load support section", path, err);
+            supportContent.innerHTML = "<p style='padding: 20px;'>Content is unavailable right now.</p>";
+          });
     };
-
     supportLinks.forEach((link) => {
       link.addEventListener("click", (e) => {
         e.preventDefault();
@@ -167,15 +134,10 @@ document.addEventListener("DOMContentLoaded", () => {
         loadSection(component);
       });
     });
-
-    const initial =
-      document.querySelector(".support-link.active-link[data-component]") || supportLinks[0];
-    if (initial) {
-      loadSection(initial.getAttribute("data-component"));
-    }
+    const initial = document.querySelector(".support-link.active-link[data-component]") || supportLinks[0];
+    if (initial) loadSection(initial.getAttribute("data-component"));
   }
 
-  // About page dynamic loader for components/AboutUs/*
   const aboutLinks = document.querySelectorAll(".about-link[data-component]");
   const aboutContent = document.getElementById("about-content");
 
@@ -184,19 +146,14 @@ document.addEventListener("DOMContentLoaded", () => {
       aboutLinks.forEach((lnk) => lnk.classList.remove("active-link"));
       target.classList.add("active-link");
     };
-
     const loadSection = (path) => {
       fetch(path)
-        .then((res) => (res.ok ? res.text() : Promise.reject(res.status)))
-        .then((html) => {
-          aboutContent.innerHTML = html;
-        })
-        .catch(() => {
-          aboutContent.innerHTML =
-            "<p style='padding: 20px;'>Content is unavailable right now. Please try again later.</p>";
-        });
+          .then((res) => (res.ok ? res.text() : Promise.reject(res.status)))
+          .then((html) => { aboutContent.innerHTML = html; })
+          .catch(() => {
+            aboutContent.innerHTML = "<p style='padding: 20px;'>Content is unavailable right now.</p>";
+          });
     };
-
     aboutLinks.forEach((link) => {
       link.addEventListener("click", (e) => {
         e.preventDefault();
@@ -206,35 +163,26 @@ document.addEventListener("DOMContentLoaded", () => {
         loadSection(component);
       });
     });
-
     const initial = document.querySelector(".about-link.active-link[data-component]") || aboutLinks[0];
-    if (initial) {
-      loadSection(initial.getAttribute("data-component"));
-    }
+    if (initial) loadSection(initial.getAttribute("data-component"));
   }
 
-  // Career page dynamic loader for components/Career/*
   const careerLinks = document.querySelectorAll(".career-link[data-component]");
-  const careerContent = document.getElementById("activities-content");
+  const careerContent = document.getElementById("career-content");
 
   if (careerLinks.length && careerContent) {
     const setActive = (target) => {
       careerLinks.forEach((lnk) => lnk.classList.remove("active-link"));
       target.classList.add("active-link");
     };
-
     const loadSection = (path) => {
       fetch(path)
-        .then((res) => (res.ok ? res.text() : Promise.reject(res.status)))
-        .then((html) => {
-          careerContent.innerHTML = html;
-        })
-        .catch(() => {
-          careerContent.innerHTML =
-            "<p style='padding: 20px;'>Content is unavailable right now. Please try again later.</p>";
-        });
+          .then((res) => (res.ok ? res.text() : Promise.reject(res.status)))
+          .then((html) => { careerContent.innerHTML = html; })
+          .catch(() => {
+            careerContent.innerHTML = "<p style='padding: 20px;'>Content is unavailable right now.</p>";
+          });
     };
-
     careerLinks.forEach((link) => {
       link.addEventListener("click", (e) => {
         e.preventDefault();
@@ -244,14 +192,10 @@ document.addEventListener("DOMContentLoaded", () => {
         loadSection(component);
       });
     });
-
     const initial = document.querySelector(".career-link.active-link[data-component]") || careerLinks[0];
-    if (initial) {
-      loadSection(initial.getAttribute("data-component"));
-    }
+    if (initial) loadSection(initial.getAttribute("data-component"));
   }
 
-  // Activities page dynamic loader for components/Activities/*
   const activitiesLinks = document.querySelectorAll(".activities-link[data-component]");
   const activitiesContent = document.getElementById("activities-content");
 
@@ -260,19 +204,14 @@ document.addEventListener("DOMContentLoaded", () => {
       activitiesLinks.forEach((lnk) => lnk.classList.remove("active-link"));
       target.classList.add("active-link");
     };
-
     const loadSection = (path) => {
       fetch(path)
-        .then((res) => (res.ok ? res.text() : Promise.reject(res.status)))
-        .then((html) => {
-          activitiesContent.innerHTML = html;
-        })
-        .catch(() => {
-          activitiesContent.innerHTML =
-            "<p style='padding: 20px;'>Content is unavailable right now. Please try again later.</p>";
-        });
+          .then((res) => (res.ok ? res.text() : Promise.reject(res.status)))
+          .then((html) => { activitiesContent.innerHTML = html; })
+          .catch(() => {
+            activitiesContent.innerHTML = "<p style='padding: 20px;'>Content is unavailable right now.</p>";
+          });
     };
-
     activitiesLinks.forEach((link) => {
       link.addEventListener("click", (e) => {
         e.preventDefault();
@@ -282,35 +221,26 @@ document.addEventListener("DOMContentLoaded", () => {
         loadSection(component);
       });
     });
-
     const initial = document.querySelector(".activities-link.active-link[data-component]") || activitiesLinks[0];
-    if (initial) {
-      loadSection(initial.getAttribute("data-component"));
-    }
+    if (initial) loadSection(initial.getAttribute("data-component"));
   }
 
-  // Alumni page dynamic loader for components/Alumini/*
   const alumniLinks = document.querySelectorAll(".alumni-link[data-component]");
-  const alumniContent = document.getElementById("activities-content");
+  const alumniContent = document.getElementById("alumni-content");
 
   if (alumniLinks.length && alumniContent) {
     const setActive = (target) => {
       alumniLinks.forEach((lnk) => lnk.classList.remove("active-link"));
       target.classList.add("active-link");
     };
-
     const loadSection = (path) => {
       fetch(path)
-        .then((res) => (res.ok ? res.text() : Promise.reject(res.status)))
-        .then((html) => {
-          alumniContent.innerHTML = html;
-        })
-        .catch(() => {
-          alumniContent.innerHTML =
-            "<p style='padding: 20px;'>Content is unavailable right now. Please try again later.</p>";
-        });
+          .then((res) => (res.ok ? res.text() : Promise.reject(res.status)))
+          .then((html) => { alumniContent.innerHTML = html; })
+          .catch(() => {
+            alumniContent.innerHTML = "<p style='padding: 20px;'>Content is unavailable right now.</p>";
+          });
     };
-
     alumniLinks.forEach((link) => {
       link.addEventListener("click", (e) => {
         e.preventDefault();
@@ -320,11 +250,7 @@ document.addEventListener("DOMContentLoaded", () => {
         loadSection(component);
       });
     });
-
     const initial = document.querySelector(".alumni-link.active-link[data-component]") || alumniLinks[0];
-    if (initial) {
-      loadSection(initial.getAttribute("data-component"));
-    }
+    if (initial) loadSection(initial.getAttribute("data-component"));
   }
-  
 });

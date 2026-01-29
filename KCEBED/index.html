@@ -20,16 +20,9 @@
           .then(res => res.text())
           .then(data => {
             document.getElementById("navbar").innerHTML = data;
-
-            // FIX: Initialize Hamburger AFTER navbar loads
-            const hamburger = document.getElementById('hamburger');
-            const navLinks = document.getElementById('navLinks');
-            if(hamburger && navLinks) {
-              hamburger.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-              });
-            }
-          });
+            if(window.initNavbar) { window.initNavbar(); }
+          })
+          .catch(err => console.error("Error loading navbar:", err));
 </script>
 
 <section class="hero-section">
