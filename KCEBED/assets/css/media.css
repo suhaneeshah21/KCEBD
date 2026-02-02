@@ -109,6 +109,28 @@
     border-bottom: 1px solid #eee;
   }
 
+  .nav-links .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    min-width: auto;
+    padding: 0 0 10px;
+  }
+
+  .nav-links .dropdown-menu li {
+    border-bottom: none;
+  }
+
+  .nav-links .dropdown-menu a {
+    padding: 8px 0;
+    font-size: 0.9rem;
+    color: var(--text-light);
+  }
+
 
 
   .logo-text h1 {
