@@ -511,4 +511,32 @@ navDropdowns.forEach((dropdown) => {
       loadSection
     });
   }
+
+  // ---------- Vertical marquee for Upcoming Events ----------
+  const marqueeContainer = document.querySelector('.vertical-marquee');
+  if (marqueeContainer) {
+    const track = marqueeContainer.querySelector('.marquee-track');
+    if (track) {
+      // Duplicate content for seamless loop
+      track.innerHTML = track.innerHTML + track.innerHTML;
+
+      // Calculate animation duration based on content height
+      const speedPxPerSec = 40; // adjust scroll speed (px per second)
+      const setMarqueeDuration = () => {
+        // original content height (half of duplicated)
+        const originalHeight = track.scrollHeight / 2 || 0;
+        const durationSec = Math.max(6, Math.round(originalHeight / speedPxPerSec));
+        track.style.animationDuration = durationSec + 's';
+      };
+
+      // Initial duration after layout settles
+      setTimeout(setMarqueeDuration, 100);
+      window.addEventListener('resize', setMarqueeDuration);
+
+      // Touch support: pause on touch
+      marqueeContainer.addEventListener('touchstart', () => { track.style.animationPlayState = 'paused'; });
+      marqueeContainer.addEventListener('touchend', () => { track.style.animationPlayState = 'running'; });
+    }
+  }
+
 });
