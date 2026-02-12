@@ -25,7 +25,13 @@
           .catch(err => console.error("Error loading navbar:", err));
 </script>
 
-<section class="hero-section">
+<section class="hero-section" id="heroSection">
+  <!-- Door Slider Container -->
+  <div class="hero-door-container">
+    <div class="hero-door hero-door-left" id="doorLeft"></div>
+    <div class="hero-door hero-door-right" id="doorRight"></div>
+  </div>
+  
   <div class="hero-overlay">
     <div class="container">
       <div class="hero-text">
@@ -84,7 +90,8 @@
 <section class="upcoming-events section-padding">
   <div class="container">
     <h2 class="section-title">Upcoming Events</h2>
-    <div class="grid-3">
+    <div class="vertical-marquee">
+      <div class="marquee-track">
       <div class="event-card">
         <div class="event-date">
           <span class="event-day">15</span>
@@ -282,5 +289,58 @@
 </footer>
 
 <script src="assets/js/script.js"></script>
+
+<script>
+  // ====================================
+  // DOOR SLIDER - Sliding from Right to Left
+  // ====================================
+  const DOOR_SLIDER_CONFIG = {
+    images: [
+      "assets/images/slider1.svg",
+      "assets/images/slider2.svg",
+      "assets/images/slider3.svg",
+      "assets/images/slider4.svg",
+      "assets/images/slider5.svg"
+    ],
+    displayTime: 5000,
+    transitionDuration: 800
+  };
+
+  let currentImageIndex = 0;
+  const doorLeft = document.getElementById('doorLeft');
+  const doorRight = document.getElementById('doorRight');
+
+  function setBackgroundImage(index) {
+    const image = DOOR_SLIDER_CONFIG.images[index];
+    doorLeft.style.backgroundImage = `url('${image}')`;
+    doorRight.style.backgroundImage = `url('${image}')`;
+  }
+
+  function performDoorTransition() {
+    const nextIndex = (currentImageIndex + 1) % DOOR_SLIDER_CONFIG.images.length;
+    
+    // Set the next image
+    setBackgroundImage(nextIndex);
+    
+    // Apply door opening animation
+    doorLeft.classList.add('door-open-left');
+    doorRight.classList.add('door-open-right');
+    
+    // After transition, prepare for next cycle
+    setTimeout(() => {
+      doorLeft.classList.remove('door-open-left');
+      doorRight.classList.remove('door-open-right');
+      
+      currentImageIndex = nextIndex;
+      // Schedule next transition
+      setTimeout(performDoorTransition, DOOR_SLIDER_CONFIG.displayTime);
+    }, DOOR_SLIDER_CONFIG.transitionDuration);
+  }
+
+  // Initialize first image
+  setBackgroundImage(0);
+  // Start the door slider after displayTime
+  setTimeout(performDoorTransition, DOOR_SLIDER_CONFIG.displayTime);
+</script>
 </body>
 </html>
