@@ -13,8 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
         newHamburger.classList.toggle("toggle");
       });
 
-      const links = document.querySelectorAll(".nav-links li a");
-      links.forEach((link) => {
+      // Only close nav when clicking on submenu items (dropdown-menu a), not on dropdown toggles
+      const submenuLinks = document.querySelectorAll(".nav-links .dropdown-menu a");
+      submenuLinks.forEach((link) => {
         link.addEventListener("click", () => {
           navLinks.classList.remove("active");
           newHamburger.classList.remove("toggle");
@@ -22,38 +23,30 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    const navItems = document.querySelectorAll(".nav-item.dropdown > .nav-link");
-    navItems.forEach((navLink) => {
-      navLink.addEventListener("click", (e) => {
-        e.preventDefault();
-        const parent = navLink.closest(".nav-item.dropdown");
-        if (!parent) return;
-
-        document.querySelectorAll(".nav-item.dropdown.open").forEach((item) => {
-          if (item !== parent) item.classList.remove("open");
-        });
-
-        parent.classList.add("open");
-      });
-    });
-
-
     const navDropdowns = document.querySelectorAll(".nav-item.dropdown");
 
 navDropdowns.forEach((dropdown) => {
   const navLink = dropdown.querySelector(".nav-link");
 
-  // OPEN on click
+  // OPEN/CLOSE on click (toggle)
   navLink.addEventListener("click", (e) => {
     e.preventDefault();
 
-    // close others
-    document.querySelectorAll(".nav-item.dropdown.open").forEach((item) => {
-      if (item !== dropdown) item.classList.remove("open");
-    });
-
-    dropdown.classList.add("open");
+    // Toggle: if already open, close it; otherwise open it
+    if (dropdown.classList.contains("open")) {
+      dropdown.classList.remove("open");
+    } else {
+      // close others
+      document.querySelectorAll(".nav-item.dropdown.open").forEach((item) => {
+        if (item !== dropdown) item.classList.remove("open");
+      });
+      dropdown.classList.add("open");
+    }
   });
+
+
+
+  
 
   // OPEN on hover
   dropdown.addEventListener("mouseenter", () => {

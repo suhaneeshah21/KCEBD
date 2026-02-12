@@ -111,14 +111,23 @@
 
   .nav-links .dropdown-menu {
     position: static;
-    opacity: 1;
-    visibility: visible;
+    opacity: 0;
+    visibility: hidden;
     transform: none;
     box-shadow: none;
     border: none;
     background: transparent;
     min-width: auto;
     padding: 0 0 10px;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+  }
+
+  .nav-links .nav-item.dropdown.open > .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    max-height: 500px;
   }
 
   .nav-links .dropdown-menu li {
