@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alumni | KCEBED</title>
+  <title>Results | KCEBED</title>
 
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/media.css" />
@@ -13,51 +13,51 @@
 </head>
 <body>
 
+
 <div id="navbar"></div>
 <script>
   fetch("components/navbar.html")
           .then(res => res.text())
           .then(data => {
             document.getElementById("navbar").innerHTML = data;
-            if(window.initNavbar) { window.initNavbar(); }
-          })
-          .catch(err => console.error("Error loading navbar:", err));
+
+            const hamburger = document.getElementById("hamburger");
+            const navLinks = document.getElementById("navLinks");
+
+            if (hamburger && navLinks) {
+              hamburger.addEventListener("click", () => {
+                navLinks.classList.toggle("active");
+              });
+            }
+          });
 </script>
 
 <div class="page-header">
   <div class="container">
-    <h1>Alumni Network</h1>
-   
+    <h1>Examination Results</h1>
+    
   </div>
 </div>
 
 <section class="section-padding">
   <div class="container page-layout">
 
-    <!-- Sidebar -->
     <aside class="sidebar">
       <div class="sidebar-widget">
-        <h3>Alumni</h3>
+        <h3>Results</h3>
         <ul class="sidebar-menu">
           <li>
             <a href="#"
-               class="active-link alumni-link"
-               data-component="components/Alumini/alumini_temp.html">
-              <i class="fa-solid fa-user-graduate"></i> Alumni
-            </a>
-          </li>
-          <li>
-            <a href="#"
-               class="alumni-link"
-               data-component="components/Alumini/aluminireg.html">
-              <i class="fa-solid fa-user-plus"></i> Register as Alumni
+               class="active-link results-link"
+               data-component="components/Results/result_temp.html">
+              <i class="fa-solid fa-file-pdf"></i> Results
             </a>
           </li>
         </ul>
       </div>
     </aside>
 
-    <div id="alumni-content" class="content-area"></div>
+    <div id="results-content" class="content-area"></div>
 
   </div>
 </section>
@@ -69,6 +69,5 @@
 </footer>
 
 <script src="assets/js/script.js"></script>
-
 </body>
 </html>

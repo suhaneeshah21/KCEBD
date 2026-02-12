@@ -25,7 +25,29 @@
           .catch(err => console.error("Error loading navbar:", err));
 </script>
 
-<section class="hero-section">
+<section class="hero-section" id="heroSection">
+  <!-- Slider Container -->
+  <div class="hero-slider-wrapper">
+    <div class="hero-slider-track" id="sliderTrack">
+      <div class="hero-slide" style="background-image: url('assets/images/uni1.jpeg');"></div>
+      <div class="hero-slide" style="background-image: url('assets/images/uni2.jpeg');"></div>
+      <div class="hero-slide" style="background-image: url('assets/images/uni3.jpeg');"></div>
+      <div class="hero-slide" style="background-image: url('assets/images/uni4.jpeg');"></div>
+      <div class="hero-slide" style="background-image: url('assets/images/uni5.jpeg');"></div>
+      <div class="hero-slide" style="background-image: url('assets/images/uni6.jpeg');"></div>
+      <!-- Duplicate first slide for infinite loop -->
+      <div class="hero-slide" style="background-image: url('assets/images/uni1.jpeg');"></div>
+    </div>
+  </div>
+  
+  <!-- Arrow Buttons -->
+  <button class="slider-arrow slider-arrow-left" id="sliderPrev">
+    <i class="fa-solid fa-chevron-left"></i>
+  </button>
+  <button class="slider-arrow slider-arrow-right" id="sliderNext">
+    <i class="fa-solid fa-chevron-right"></i>
+  </button>
+  
   <div class="hero-overlay">
     <div class="container">
       <div class="hero-text">
@@ -34,6 +56,9 @@
       </div>
     </div>
   </div>
+  
+  <!-- Slider Dots -->
+  <div class="slider-dots" id="sliderDots"></div>
 </section>
 
 <div class="affiliations-bar">
@@ -61,26 +86,22 @@
   <div class="container">
     <h2 class="section-title">Academics & Campus</h2>
     <div class="grid-4">
-      <div class="card">
-        <h3>Admissions</h3>
-        <p>Eligibility criteria and process for B.Ed & M.Ed.</p>
-        <a href="#">Read More &rarr;</a>
-      </div>
-      <div class="card">
-        <h3>Syllabus</h3>
-        <p>Download the latest curriculum PDF.</p>
-        <a href="#">Download &rarr;</a>
-      </div>
-      <div class="card">
+      <a href="courses.html" class="card">
+        <h3>Courses</h3>
+        <p>Courses that are provided by the institute</p>
+        <span class="card-link">Read More &rarr;</span>
+      </a>
+      <a href="career.html" class="card">
+        <h3>Career</h3>
+        <p>Career oppurtunities</p>
+        <span class="card-link">Download &rarr;</span>
+      </a>
+      
+      <a href="Results.html" class="card">
         <h3>Results</h3>
         <p>Check university exam results online.</p>
-        <a href="#">Check Now &rarr;</a>
-      </div>
-      <div class="card">
-        <h3>Gallery</h3>
-        <p>Glimpses of campus life and events.</p>
-        <a href="#">View Photos &rarr;</a>
-      </div>
+        <span class="card-link">Check Now &rarr;</span>
+      </a>
     </div>
   </div>
 </section>
@@ -88,7 +109,8 @@
 <section class="upcoming-events section-padding">
   <div class="container">
     <h2 class="section-title">Upcoming Events</h2>
-    <div class="grid-3">
+    <div class="vertical-marquee">
+      <div class="marquee-track">
       <div class="event-card">
         <div class="event-date">
           <span class="event-day">15</span>
@@ -170,7 +192,7 @@
       </div>
     </div>
 
-    <div class="achievement-subsection">
+    <!-- <div class="achievement-subsection">
       <h3 class="subsection-title">Examination Results</h3>
       <div class="results-year-section">
         <h4 class="results-year">2023-24 Academic Year</h4>
@@ -192,7 +214,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </section>
 
@@ -257,6 +279,17 @@
           <h3><i class="fa-solid fa-phone" style="color: var(--accent-gold);"></i> Contact</h3>
           <p>0217-2651705 / kcesolapur@gmail.com</p>
         </div>
+        <div class="map-box" style="margin-top: 20px;">
+          <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3801.6756834880553!2d75.92294177539131!3d17.66551299473294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc5da42decb5211%3A0x52fdbf6feb4133a1!2sKasturbai%20College%20of%20Education!5e0!3m2!1sen!2sin!4v1765225205827!5m2!1sen!2sin"
+                  width="100%"
+                  height="300"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
       </div>
       <form class="simple-form">
         <div class="form-group"><input type="text" placeholder="Your Name" required></div>
@@ -275,5 +308,58 @@
 </footer>
 
 <script src="assets/js/script.js"></script>
+
+<script>
+  // ====================================
+  // DOOR SLIDER - Sliding from Right to Left
+  // ====================================
+  const DOOR_SLIDER_CONFIG = {
+    images: [
+      "assets/images/slider1.svg",
+      "assets/images/slider2.svg",
+      "assets/images/slider3.svg",
+      "assets/images/slider4.svg",
+      "assets/images/slider5.svg"
+    ],
+    displayTime: 5000,
+    transitionDuration: 800
+  };
+
+  let currentImageIndex = 0;
+  const doorLeft = document.getElementById('doorLeft');
+  const doorRight = document.getElementById('doorRight');
+
+  function setBackgroundImage(index) {
+    const image = DOOR_SLIDER_CONFIG.images[index];
+    doorLeft.style.backgroundImage = `url('${image}')`;
+    doorRight.style.backgroundImage = `url('${image}')`;
+  }
+
+  function performDoorTransition() {
+    const nextIndex = (currentImageIndex + 1) % DOOR_SLIDER_CONFIG.images.length;
+    
+    // Set the next image
+    setBackgroundImage(nextIndex);
+    
+    // Apply door opening animation
+    doorLeft.classList.add('door-open-left');
+    doorRight.classList.add('door-open-right');
+    
+    // After transition, prepare for next cycle
+    setTimeout(() => {
+      doorLeft.classList.remove('door-open-left');
+      doorRight.classList.remove('door-open-right');
+      
+      currentImageIndex = nextIndex;
+      // Schedule next transition
+      setTimeout(performDoorTransition, DOOR_SLIDER_CONFIG.displayTime);
+    }, DOOR_SLIDER_CONFIG.transitionDuration);
+  }
+
+  // Initialize first image
+  setBackgroundImage(0);
+  // Start the door slider after displayTime
+  setTimeout(performDoorTransition, DOOR_SLIDER_CONFIG.displayTime);
+</script>
 </body>
 </html>
