@@ -26,11 +26,27 @@
 </script>
 
 <section class="hero-section" id="heroSection">
-  <!-- Door Slider Container -->
-  <div class="hero-door-container">
-    <div class="hero-door hero-door-left" id="doorLeft"></div>
-    <div class="hero-door hero-door-right" id="doorRight"></div>
+  <!-- Slider Container -->
+  <div class="hero-slider-wrapper">
+    <div class="hero-slider-track" id="sliderTrack">
+      <div class="hero-slide" style="background-image: url('assets/images/uni1.jpeg');"></div>
+      <div class="hero-slide" style="background-image: url('assets/images/uni2.jpeg');"></div>
+      <div class="hero-slide" style="background-image: url('assets/images/uni3.jpeg');"></div>
+      <div class="hero-slide" style="background-image: url('assets/images/uni4.jpeg');"></div>
+      <div class="hero-slide" style="background-image: url('assets/images/uni5.jpeg');"></div>
+      <div class="hero-slide" style="background-image: url('assets/images/uni6.jpeg');"></div>
+      <!-- Duplicate first slide for infinite loop -->
+      <div class="hero-slide" style="background-image: url('assets/images/uni1.jpeg');"></div>
+    </div>
   </div>
+  
+  <!-- Arrow Buttons -->
+  <button class="slider-arrow slider-arrow-left" id="sliderPrev">
+    <i class="fa-solid fa-chevron-left"></i>
+  </button>
+  <button class="slider-arrow slider-arrow-right" id="sliderNext">
+    <i class="fa-solid fa-chevron-right"></i>
+  </button>
   
   <div class="hero-overlay">
     <div class="container">
@@ -40,6 +56,9 @@
       </div>
     </div>
   </div>
+  
+  <!-- Slider Dots -->
+  <div class="slider-dots" id="sliderDots"></div>
 </section>
 
 <div class="affiliations-bar">
@@ -69,7 +88,7 @@
     <div class="grid-4">
       <a href="courses.html" class="card">
         <h3>Courses</h3>
-        <p>Courses that are provided by thr institute</p>
+        <p>Courses that are provided by the institute</p>
         <span class="card-link">Read More &rarr;</span>
       </a>
       <a href="career.html" class="card">

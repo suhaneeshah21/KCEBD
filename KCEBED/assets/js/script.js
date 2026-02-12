@@ -532,4 +532,158 @@ navDropdowns.forEach((dropdown) => {
     }
   }
 
+  // ---------- Hero Section Image Slider ----------
+  const sliderTrack = document.querySelector('.hero-slider-track');
+  const slides = document.querySelectorAll('.hero-slide');
+  const prevBtn = document.getElementById('sliderPrev');
+  const nextBtn = document.getElementById('sliderNext');
+  const dotsContainer = document.getElementById('sliderDots');
+  
+  if (sliderTrack && slides.length > 0 && prevBtn && nextBtn && dotsContainer) {
+    let currentSlide = 0;
+    const totalSlides = slides.length - 1; // Subtract 1 because last slide is duplicate
+    let autoSlideInterval;
+    let isTransitioning = false;
+    
+    // Create dots (only for original slides, not the duplicate)
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('div');
+      dot.classList.add('slider-dot');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goToSlide(i));
+      dotsContainer.appendChild(dot);
+    }
+    
+    const dots = document.querySelectorAll('.slider-dot');
+    
+    // Update slider position
+    function updateSliderPosition(smooth = true) {
+      const offset = -currentSlide * 100;
+      if (smooth) {
+        sliderTrack.style.transition = 'transform 0.8s ease-in-out';
+      } else {
+        sliderTrack.style.transition = 'none';
+      }
+      sliderTrack.style.transform = `translateX(${offset}%)`;
+    }
+    
+    // Show specific slide
+    function goToSlide(n, smooth = true) {
+      if (isTransitioning) return;
+      
+      // Remove active class from current dot
+      dots[currentSlide % totalSlides].classList.remove('active');
+      
+      // Update current slide index
+      currentSlide = n;
+      
+      // Add active class to new dot
+      dots[currentSlide % totalSlides].classList.add('active');
+      
+      // Update slider position
+      updateSliderPosition(smooth);
+      
+      // Reset auto-slide timer
+      resetAutoSlide();
+    }
+    
+    // Next slide with infinite loop
+    function nextSlide() {
+      if (isTransitioning) return;
+      isTransitioning = true;
+      
+      currentSlide++;
+      
+      // Remove active from current dot
+      dots[(currentSlide - 1) % totalSlides].classList.remove('active');
+      
+      // Add active to next dot (wrap around if needed)
+      dots[currentSlide % totalSlides].classList.add('active');
+      
+      // Slide to next position
+      updateSliderPosition(true);
+      
+      // If we're at the duplicate slide (last one), reset to first after transition
+      if (currentSlide === totalSlides) {
+        setTimeout(() => {
+          currentSlide = 0;
+          updateSliderPosition(false); // Jump instantly without animation
+          isTransitioning = false;
+        }, 800); // Match transition duration
+      } else {
+        setTimeout(() => {
+          isTransitioning = false;
+        }, 800);
+      }
+      
+      resetAutoSlide();
+    }
+    
+    // Previous slide
+    function prevSlide() {
+      if (isTransitioning) return;
+      isTransitioning = true;
+      
+      // If at first slide, jump to duplicate without animation, then slide to last real slide
+      if (currentSlide === 0) {
+        currentSlide = totalSlides;
+        updateSliderPosition(false); // Jump to duplicate instantly
+        
+        setTimeout(() => {
+          currentSlide = totalSlides - 1;
+          dots[currentSlide].classList.add('active');
+          dots[0].classList.remove('active');
+          updateSliderPosition(true);
+          setTimeout(() => {
+            isTransitioning = false;
+          }, 800);
+        }, 20);
+      } else {
+        dots[currentSlide].classList.remove('active');
+        currentSlide--;
+        dots[currentSlide].classList.add('active');
+        updateSliderPosition(true);
+        setTimeout(() => {
+          isTransitioning = false;
+        }, 800);
+      }
+      
+      resetAutoSlide();
+    }
+    
+    // Auto-slide functionality
+    function startAutoSlide() {
+      autoSlideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+    }
+    
+    function stopAutoSlide() {
+      clearInterval(autoSlideInterval);
+    }
+    
+    function resetAutoSlide() {
+      stopAutoSlide();
+      startAutoSlide();
+    }
+    
+    // Event listeners for arrow buttons
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+    
+    // Pause auto-slide on hover
+    const heroSection = document.getElementById('heroSection');
+    if (heroSection) {
+      heroSection.addEventListener('mouseenter', stopAutoSlide);
+      heroSection.addEventListener('mouseleave', startAutoSlide);
+    }
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') prevSlide();
+      if (e.key === 'ArrowRight') nextSlide();
+    });
+    
+    // Start auto-slide
+    startAutoSlide();
+  }
+
 });
