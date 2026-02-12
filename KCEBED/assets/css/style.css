@@ -104,7 +104,7 @@ ul {
   padding: 15px 0;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   position: sticky;
-  top: 36px;
+  top: 0;   /* FIXED */
   left: 0;
   width: 100%;
   z-index: 1000;
@@ -838,12 +838,15 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .main-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+  .page-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
-  .logo-area {
-    margin-right: 0;
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
+
 }

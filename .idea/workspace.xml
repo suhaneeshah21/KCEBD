@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="b17dff8a-b3be-4cdd-afdd-35669c7515e9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KCEBED/assets/css/media.css" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/assets/css/media.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KCEBED/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KCEBED/assets/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/assets/js/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +42,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "temp",
+    "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
