@@ -111,22 +111,39 @@ ul {
   z-index: 1000;
 }
 
+.main-header .container {
+  margin: 0;
+  margin-left: 0;
+  width: 100%;
+  max-width: 100%;
+  padding: 0 20px;
+}
+
 .logo-area {
   display: flex;
   align-items: center;
   gap: 15px;
+  flex-shrink: 0;
 }
 .logo-img {
   height: 60px;
   width: auto;
+  flex-shrink: 0;
+}
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .logo-text h1 {
   font-size: 1.2rem;
   margin-bottom: 2px;
+  line-height: 1.2;
 }
 .logo-text p {
   font-size: 0.85rem;
   color: var(--text-light);
+  line-height: 1.2;
 }
 
 .nav-links {
