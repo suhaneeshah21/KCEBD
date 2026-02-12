@@ -48,8 +48,8 @@ ul {
 }
 
 .container {
-  width: 90%;
-  max-width: 1200px;
+  width: 95%;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -80,7 +80,6 @@ ul {
 .grid-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
 .grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
 
-/* Upcoming Events - Full Width Single Column */
 .upcoming-events .grid-3 {
   grid-template-columns: 1fr;
   max-width: 100%;
@@ -112,15 +111,18 @@ ul {
 }
 
 .main-header .container {
-  margin: 0;
-  margin-left: 0;
   width: 100%;
-  max-width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
   padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .logo-area {
   display: flex;
+  margin-right: 40px;
   align-items: center;
   gap: 15px;
   flex-shrink: 0;
@@ -150,7 +152,7 @@ ul {
   display: flex;
   gap: 25px;
   align-items: center;
-  padding-left: 100px;
+  margin-left: auto;
 }
 
 
@@ -809,7 +811,6 @@ footer {
   text-align: center;
 }
 
-/* Vertical marquee for Upcoming Events */
 .vertical-marquee {
   max-height: 520px;
   overflow: hidden;
@@ -820,7 +821,6 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  /* default duration will be set from JS based on content height */
   animation-name: marqueeScroll;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -833,7 +833,6 @@ footer {
   100% { transform: translateY(-50%); }
 }
 
-/* Pause animation on hover */
 .vertical-marquee:hover .marquee-track {
   animation-play-state: paused;
 }
