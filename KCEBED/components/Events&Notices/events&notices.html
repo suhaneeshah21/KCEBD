@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<base href="../../" />
+	<title>Events & Notices | KCEBED</title>
+
+	<link rel="stylesheet" href="assets/css/style.css" />
+	<link rel="stylesheet" href="assets/css/media.css" />
+
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div id="navbar"></div>
+<script>
+	fetch("components/navbar.html")
+					.then(res => res.text())
+					.then(data => {
+						document.getElementById("navbar").innerHTML = data;
+						if (window.initNavbar) { window.initNavbar(); }
+					})
+					.catch(err => console.error("Error loading navbar:", err));
+</script>
+
+<div class="page-header">
+	<div class="container">
+		<h1>Events & Notices</h1>
+		<p>Home / Events & Notices</p>
+	</div>
+</div>
+
+<section class="section-padding">
+	<div class="container">
+		<h2 class="section-title">Events</h2>
+		<div class="events-list">
+			<div class="event-card">
+				<div class="event-date">
+					<span class="event-day">17</span>
+					<span class="event-month">FEB</span>
+				</div>
+				<div class="event-content">
+					<h3>NAAC Documentation Workshop</h3>
+					<p class="event-time"><i class="fa-regular fa-clock"></i> 10:00 AM</p>
+					<p class="event-location"><i class="fa-solid fa-location-dot"></i> Conference Hall</p>
+					<p class="event-description">Workshop for faculty coordinators on documentation and evidence mapping.</p>
+				</div>
+			</div>
+
+			<div class="event-card">
+				<div class="event-date">
+					<span class="event-day">01</span>
+					<span class="event-month">MAR</span>
+				</div>
+				<div class="event-content">
+					<h3>Guest Lecture on Inclusive Education</h3>
+					<p class="event-time"><i class="fa-regular fa-clock"></i> 11:30 AM</p>
+					<p class="event-location"><i class="fa-solid fa-location-dot"></i> Seminar Hall</p>
+					<p class="event-description">Keynote by Dr. Meera Kulkarni on inclusive classrooms.</p>
+				</div>
+			</div>
+
+			<div class="event-card">
+				<div class="event-date">
+					<span class="event-day">10</span>
+					<span class="event-month">MAR</span>
+				</div>
+				<div class="event-content">
+					<h3>Sports Meet Team Trials</h3>
+					<p class="event-time"><i class="fa-regular fa-clock"></i> 4:00 PM</p>
+					<p class="event-location"><i class="fa-solid fa-location-dot"></i> College Ground</p>
+					<p class="event-description">Selection trials for athletics and indoor games.</p>
+				</div>
+			</div>
+
+			<div class="event-card">
+				<div class="event-date">
+					<span class="event-day">18</span>
+					<span class="event-month">MAR</span>
+				</div>
+				<div class="event-content">
+					<h3>Student NAAC Survey Briefing</h3>
+					<p class="event-time"><i class="fa-regular fa-clock"></i> 2:30 PM</p>
+					<p class="event-location"><i class="fa-solid fa-location-dot"></i> Auditorium</p>
+					<p class="event-description">Session explaining the student survey process and participation.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section-padding bg-light">
+	<div class="container">
+		<h2 class="section-title">Notices</h2>
+		<div class="notices-list">
+			<div class="notice-card">
+				<div class="notice-date">
+					<span class="notice-day">14</span>
+					<span class="notice-month">FEB</span>
+				</div>
+				<div class="notice-content">
+					<span class="notice-tag">Notice</span>
+					<h4>Internal Assessment Schedule Released</h4>
+					<p>Refer to department notice board for subject-wise timing.</p>
+				</div>
+			</div>
+
+			<div class="notice-card">
+				<div class="notice-date">
+					<span class="notice-day">21</span>
+					<span class="notice-month">FEB</span>
+				</div>
+				<div class="notice-content">
+					<span class="notice-tag">Notice</span>
+					<h4>Library Book Return Deadline</h4>
+					<p>Last date for submission of borrowed books without fine.</p>
+				</div>
+			</div>
+
+			<div class="notice-card">
+				<div class="notice-date">
+					<span class="notice-day">26</span>
+					<span class="notice-month">FEB</span>
+				</div>
+				<div class="notice-content">
+					<span class="notice-tag">Notice</span>
+					<h4>Scholarship Renewal Forms</h4>
+					<p>Submit filled forms to the admin office by 4:00 PM.</p>
+				</div>
+			</div>
+
+			<div class="notice-card">
+				<div class="notice-date">
+					<span class="notice-day">02</span>
+					<span class="notice-month">MAR</span>
+				</div>
+				<div class="notice-content">
+					<span class="notice-tag">Notice</span>
+					<h4>Practical Exam Seating Plan</h4>
+					<p>Seating plan displayed on the notice board and LMS.</p>
+				</div>
+			</div>
+
+			<div class="notice-card">
+				<div class="notice-date">
+					<span class="notice-day">06</span>
+					<span class="notice-month">MAR</span>
+				</div>
+				<div class="notice-content">
+					<span class="notice-tag">Notice</span>
+					<h4>Hostel Fee Submission</h4>
+					<p>Final date for fee submission is 06 March 2026.</p>
+				</div>
+			</div>
+
+			<div class="notice-card">
+				<div class="notice-date">
+					<span class="notice-day">25</span>
+					<span class="notice-month">MAR</span>
+				</div>
+				<div class="notice-content">
+					<span class="notice-tag">Notice</span>
+					<h4>Summer Internship Orientation</h4>
+					<p>Orientation for internship selection and documentation.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<footer>
+	<div class="container">
+		<p>&copy; 2025 Kasturbai College of Education. All Rights Reserved.</p>
+	</div>
+</footer>
+
+<script src="assets/js/script.js"></script>
+</body>
+</html>
