@@ -19,6 +19,11 @@
   .hero-text h2 {
     font-size: 2.5rem;
   }
+
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
 }
 
 
@@ -232,6 +237,11 @@
 
   .stat-value {
     font-size: 1.1rem;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 }
 
