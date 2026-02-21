@@ -152,6 +152,21 @@ navDropdowns.forEach((dropdown) => {
     });
   }
 
+  // --- Visitor counter for homepage footer (client-side using localStorage) ---
+  try {
+    const visitorEl = document.getElementById('visitor-count');
+    if (visitorEl) {
+      // read current count (0 if not present)
+      const key = 'kcebed_visit_count';
+      let count = parseInt(localStorage.getItem(key) || '0', 10) || 0;
+      count += 1; // increment on each page load
+      localStorage.setItem(key, String(count));
+      visitorEl.textContent = count.toLocaleString();
+    }
+  } catch (err) {
+    console.warn('Visitor counter error', err);
+  }
+
   const courseLinks = document.querySelectorAll(".course-link[data-component]");
   const coursesContent = document.getElementById("courses-content");
 

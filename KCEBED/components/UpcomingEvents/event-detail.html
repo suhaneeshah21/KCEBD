@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <base href="../../" />
+  <title>Event Details | KCEBED</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/media.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div id="navbar"></div>
+<script>
+  fetch("components/navbar.html")
+    .then(res => res.text())
+    .then(data => { document.getElementById("navbar").innerHTML = data; if(window.initNavbar) window.initNavbar(); })
+    .catch(()=>{});
+</script>
+
+<div class="page-header">
+  <div class="container"><h1 id="event-title">Event</h1><p id="event-subtitle"></p></div>
+</div>
+
+<section class="section-padding">
+  <div class="container">
+    <div class="event-detail">
+      <h2 id="detail-title"></h2>
+      <p id="detail-meta" class="event-time"></p>
+      <p id="detail-location" class="event-location"></p>
+      <p id="detail-description" class="event-description"></p>
+      <p><a href="components/UpcomingEvents/upcoming_events.html" class="btn-link">Back to Events &rarr;</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container"><p>&copy; 2025 Kasturbai College of Education. All Rights Reserved.</p></div>
+</footer>
+
+<script>
+  const events = {
+    orientation: {
+      title: 'Orientation & Induction',
+      time: '9:30 AM',
+      location: 'Auditorium',
+      desc: 'Welcome session for new batch with faculty interaction and campus briefing.'
+    },
+    microteaching: {
+      title: 'Micro-Teaching Workshop',
+      time: '11:00 AM',
+      location: 'Method Lab',
+      desc: 'Skill-based practice sessions with peer review and mentoring.'
+    },
+    outreach: {
+      title: 'Community Outreach Drive',
+      time: '8:00 AM',
+      location: 'City Schools',
+      desc: 'Teaching support activities with partner schools and NGOs.'
+    },
+    annualsports: {
+      title: 'Annual Sports Meet',
+      time: '3:00 PM',
+      location: 'College Ground',
+      desc: 'Inter-section competitions and team-building activities.'
+    }
+    ,
+    naac_workshop: {
+      title: 'NAAC Documentation Workshop',
+      time: '10:00 AM',
+      location: 'Conference Hall',
+      desc: 'Workshop for faculty coordinators on documentation and evidence mapping.'
+    },
+    guest_lecture: {
+      title: 'Guest Lecture on Inclusive Education',
+      time: '11:30 AM',
+      location: 'Seminar Hall',
+      desc: 'Keynote by Dr. Meera Kulkarni on inclusive classrooms.'
+    },
+    sports_trials: {
+      title: 'Sports Meet Team Trials',
+      time: '4:00 PM',
+      location: 'College Ground',
+      desc: 'Selection trials for athletics and indoor games.'
+    },
+    student_naac: {
+      title: 'Student NAAC Survey Briefing',
+      time: '2:30 PM',
+      location: 'Auditorium',
+      desc: 'Session explaining the student survey process and participation.'
+    },
+    internal_assessment: {
+      title: 'Internal Assessment Schedule',
+      time: '',
+      location: '',
+      desc: 'Internal assessment schedule released. Refer to the department notice board for subject-wise timing.'
+    },
+    library_return: {
+      title: 'Library Book Return Deadline',
+      time: '',
+      location: 'Library',
+      desc: 'Last date for submission of borrowed books without fine.'
+    },
+    scholarship_renewal: {
+      title: 'Scholarship Renewal Forms',
+      time: '',
+      location: 'Admin Office',
+      desc: 'Submit filled forms to the admin office by 4:00 PM.'
+    },
+    practical_exam: {
+      title: 'Practical Exam Seating Plan',
+      time: '',
+      location: 'Notice Board / LMS',
+      desc: 'Seating plan displayed on the notice board and LMS.'
+    },
+    hostel_fee: {
+      title: 'Hostel Fee Submission',
+      time: '',
+      location: 'Accounts Office',
+      desc: 'Final date for fee submission is 06 March 2026.'
+    },
+    internship_orientation: {
+      title: 'Summer Internship Orientation',
+      time: '',
+      location: 'Training Office',
+      desc: 'Orientation for internship selection and documentation.'
+    }
+  };
+
+  function showEvent() {
+    const id = location.hash.replace('#','') || 'orientation';
+    const ev = events[id];
+    if(ev){
+      document.getElementById('event-title').textContent = ev.title;
+      document.getElementById('detail-title').textContent = ev.title;
+      document.getElementById('detail-meta').innerHTML = '<i class="fa-regular fa-clock"></i> ' + ev.time;
+      document.getElementById('detail-location').innerHTML = '<i class="fa-solid fa-location-dot"></i> ' + ev.location;
+      document.getElementById('detail-description').textContent = ev.desc;
+    } else {
+      document.getElementById('event-title').textContent = 'Event Not Found';
+      document.getElementById('detail-title').textContent = 'Event Not Found';
+      document.getElementById('detail-description').textContent = 'The requested event could not be located.';
+    }
+  }
+  window.addEventListener('hashchange', showEvent);
+  showEvent();
+</script>
+
+</body>
+</html>
