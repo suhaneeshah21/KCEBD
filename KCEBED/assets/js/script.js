@@ -1,74 +1,73 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+  // ==========================================================
+// START: PASTE THIS NEW CODE IN ITS PLACE
+// ==========================================================
   window.initNavbar = function() {
     const hamburger = document.getElementById("hamburger");
-    const navLinks = document.getElementById("navLinks");
+    const navMenu = document.getElementById("navLinks");
+    const dropdowns = document.querySelectorAll(".nav-item.dropdown");
 
-    if (hamburger && navLinks) {
-      const newHamburger = hamburger.cloneNode(true);
-      hamburger.parentNode.replaceChild(newHamburger, hamburger);
+    // --- 1. Simplified Hamburger Toggle ---
+    if (hamburger && navMenu) {
+      hamburger.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+        hamburger.classList.toggle("toggle");
 
-      newHamburger.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-        newHamburger.classList.toggle("toggle");
-      });
-
-      // Only close nav when clicking on submenu items (dropdown-menu a), not on dropdown toggles
-      const submenuLinks = document.querySelectorAll(".nav-links .dropdown-menu a");
-      submenuLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-          navLinks.classList.remove("active");
-          newHamburger.classList.remove("toggle");
-        });
+        // When closing the main menu, also close any open sub-menus
+        if (!navMenu.classList.contains("active")) {
+          dropdowns.forEach(d => d.classList.remove("open"));
+        }
       });
     }
 
-    const navDropdowns = document.querySelectorAll(".nav-item.dropdown");
+    // --- 2. Smart Dropdown Handling for Mobile and Desktop ---
+    dropdowns.forEach((dropdown) => {
+      const link = dropdown.querySelector("a.nav-link");
 
-navDropdowns.forEach((dropdown) => {
-  const navLink = dropdown.querySelector(".nav-link");
+      // A) Handle Clicks (for Mobile)
+      link.addEventListener("click", (e) => {
+        // ONLY prevent default behavior on mobile viewports
+        if (window.innerWidth <= 768) {
+          e.preventDefault(); // Stop link from navigating on mobile tap
 
-  // OPEN/CLOSE on click (toggle)
-  navLink.addEventListener("click", (e) => {
-    e.preventDefault();
+          const wasOpen = dropdown.classList.contains('open');
 
-    // Toggle: if already open, close it; otherwise open it
-    if (dropdown.classList.contains("open")) {
-      dropdown.classList.remove("open");
-    } else {
-      // close others
-      document.querySelectorAll(".nav-item.dropdown.open").forEach((item) => {
-        if (item !== dropdown) item.classList.remove("open");
+          // Close all other dropdowns for an accordion effect
+          dropdowns.forEach(d => d.classList.remove('open'));
+
+          // If it wasn't already open, open it now
+          if (!wasOpen) {
+            dropdown.classList.add('open');
+          }
+        }
+        // On desktop (> 768px), this entire 'if' block is skipped,
+        // and the link navigates to its href as normal.
       });
-      dropdown.classList.add("open");
-    }
-  });
 
+      // B) Handle Hover (for Desktop)
+      dropdown.addEventListener("mouseenter", () => {
+        if (window.innerWidth > 768) {
+          dropdown.classList.add("open");
+        }
+      });
 
+      dropdown.addEventListener("mouseleave", () => {
+        if (window.innerWidth > 768) {
+          dropdown.classList.remove("open");
+        }
+      });
+    });
 
-  
-
-  // OPEN on hover
-  dropdown.addEventListener("mouseenter", () => {
-    dropdown.classList.add("open");
-  });
-
-  // 🔴 CLOSE as soon as cursor leaves THIS dropdown
-  dropdown.addEventListener("mouseleave", () => {
-    dropdown.classList.remove("open");
-  });
-});
-
-
-    
-
-
-  //   const navDropdowns = document.querySelectorAll(".nav-item.dropdown");
-  //   navDropdowns.forEach((dropdown) => {
-  //     dropdown.addEventListener("mouseleave", () => {
-  //       dropdown.classList.remove("open");
-  //     });
-  //   });
+    const submenuLinks = navMenu.querySelectorAll(".dropdown-menu a");
+    submenuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          navMenu.classList.remove("active");
+          hamburger.classList.remove("toggle");
+        }
+      });
+    });
   };
 
   const getRequestedComponent = () => {

@@ -52,8 +52,8 @@ ul {
 }
 
 .container {
-  width: 90%;
-  max-width: 1200px;
+  width: 95%;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -84,7 +84,6 @@ ul {
 .grid-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
 .grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
 
-/* Upcoming Events - Full Width Single Column */
 .upcoming-events .grid-3 {
   grid-template-columns: 1fr;
   max-width: 100%;
@@ -109,22 +108,25 @@ ul {
   padding: 15px 0;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   position: sticky;
-  top: 36px;
+  top: 0;   /* FIXED */
   left: 0;
   width: 100%;
   z-index: 1000;
 }
 
 .main-header .container {
-  margin: 0;
-  margin-left: 0;
   width: 100%;
-  max-width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
   padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .logo-area {
   display: flex;
+  margin-right: 40px;
   align-items: center;
   gap: 15px;
   flex-shrink: 0;
@@ -172,7 +174,7 @@ ul {
   display: flex;
   gap: 25px;
   align-items: center;
-  padding-left: 100px;
+  margin-left: auto;
 }
 
 
@@ -1161,7 +1163,6 @@ footer .container {
   text-align: center;
 }
 
-/* Vertical marquee for Upcoming Events */
 .vertical-marquee {
   max-height: 520px;
   overflow: hidden;
@@ -1172,7 +1173,6 @@ footer .container {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  /* default duration will be set from JS based on content height */
   animation-name: marqueeScroll;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -1185,7 +1185,6 @@ footer .container {
   100% { transform: translateY(-50%); }
 }
 
-/* Pause animation on hover */
 .vertical-marquee:hover .marquee-track {
   animation-play-state: paused;
 }
@@ -1201,12 +1200,15 @@ footer .container {
 }
 
 @media (max-width: 768px) {
-  .main-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+  .page-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
-  .logo-area {
-    margin-right: 0;
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
+
 }
