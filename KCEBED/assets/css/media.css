@@ -161,7 +161,8 @@
 
 
   .hero-section {
-    height: auto;
+    height: 400px;
+    min-height: 400px;
     padding: 40px 0;
     text-align: center;
   }
