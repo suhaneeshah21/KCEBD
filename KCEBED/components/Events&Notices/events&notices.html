@@ -16,13 +16,18 @@
 
 <div id="navbar"></div>
 <script>
-	fetch("components/navbar.html")
-					.then(res => res.text())
-					.then(data => {
-						document.getElementById("navbar").innerHTML = data;
-						if (window.initNavbar) { window.initNavbar(); }
-					})
-					.catch(err => console.error("Error loading navbar:", err));
+	(function(){
+	  var xhr=new XMLHttpRequest();
+	  xhr.open("GET","components/navbar.html",true);
+	  xhr.onload=function(){
+	    if(xhr.status===200||xhr.status===0){
+	      document.getElementById("navbar").innerHTML=xhr.responseText;
+	      window.initNavbar&&window.initNavbar();
+	      window.initPage&&window.initPage();
+	    }
+	  };
+	  xhr.send();
+	})();
 </script>
 
 <div class="page-header">
@@ -140,9 +145,32 @@
 	</div>
 </section>
 
-<footer>
+<footer class="site-footer">
 	<div class="container">
-		<p>&copy; 2025 Kasturbai College of Education. All Rights Reserved.</p>
+		<div class="footer-grid">
+			<div class="footer-col footer-address">
+				<h4>Address</h4>
+				<p>Kasturbai College of Education<br>Ashok Chowk, Solapur - 413006</p>
+				<a class="btn-link" href="https://www.google.com/maps" target="_blank" rel="noreferrer">View on map &rarr;</a>
+			</div>
+			<div class="footer-col footer-links">
+				<h4>Important Links</h4>
+				<ul>
+					<li><a href="courses.html">Courses</a></li>
+					<li><a href="Results.html">Results</a></li>
+					<li><a href="about.html">About Us</a></li>
+					<li><a href="contact.html">Contact</a></li>
+				</ul>
+			</div>
+			<div class="footer-col footer-contact">
+				<h4>Contact</h4>
+				<p><i class="fa-solid fa-phone"></i> 0217-2651705</p>
+				<p><i class="fa-solid fa-envelope"></i> kcesolapur@gmail.com</p>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<p>&copy; 2026 Kasturbai College of Education. All Rights Reserved.</p>
+		</div>
 	</div>
 </footer>
 

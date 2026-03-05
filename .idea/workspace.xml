@@ -5,28 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b17dff8a-b3be-4cdd-afdd-35669c7515e9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KCEBED/components/Courses/BED_Curriculum.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KCEBED/components/Courses/BED_Engagement.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KCEBED/components/Courses/BED_Perspectives.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KCEBED/components/Events&amp;Notices/events&amp;notices.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KCEBED/components/UpcomingEvents/event-detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KCEBED/components/UpcomingEvents/upcoming_events.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KCEBED/Results.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/Results.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KCEBED/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/about.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KCEBED/activities.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/activities.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KCEBED/alumini.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/alumini.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KCEBED/assets/css/media.css" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/assets/css/media.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KCEBED/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/assets/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KCEBED/assets/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/assets/js/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KCEBED/career.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/career.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KCEBED/components/Alumini/aluminireg.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/components/Alumini/aluminireg.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KCEBED/components/Courses/BED.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/components/Courses/BED.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KCEBED/components/Courses/DSM.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/components/Courses/DSM.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KCEBED/components/Courses/MA.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/components/Courses/MA.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KCEBED/components/Courses/MED.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/components/Courses/MED.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KCEBED/components/Courses/pHD.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/components/Courses/pHD.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KCEBED/components/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/components/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KCEBED/components/Events&amp;Notices/events&amp;notices.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/components/Events&amp;Notices/events&amp;notices.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KCEBED/components/UpcomingEvents/event-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/components/UpcomingEvents/event-detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KCEBED/components/UpcomingEvents/upcoming_events.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/components/UpcomingEvents/upcoming_events.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KCEBED/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/contact.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KCEBED/courses.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/courses.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KCEBED/facilities.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/facilities.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KCEBED/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/index.html" afterDir="false" />
@@ -41,6 +31,12 @@
     <persistenceIdMap>
       <entry key="_/Users/architayadav/KCEBD" value="38t8PJ9FlUGipMAhGTEV3csop2f" />
     </persistenceIdMap>
+  </component>
+  <component name="CopilotUserSelectedModel">
+    <selectedModels>
+      <entry key="chat-panel" value="Claude Sonnet 4.6" />
+      <entry key="agent-panel" value="Claude Sonnet 4.6" />
+    </selectedModels>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -69,7 +65,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Merging main",
+    "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",

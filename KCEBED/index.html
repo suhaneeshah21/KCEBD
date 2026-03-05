@@ -16,13 +16,18 @@
 
 <div id="navbar"></div>
 <script>
-  fetch("components/navbar.html")
-          .then(res => res.text())
-          .then(data => {
-            document.getElementById("navbar").innerHTML = data;
-            if(window.initNavbar) { window.initNavbar(); }
-          })
-          .catch(err => console.error("Error loading navbar:", err));
+(function(){
+  var xhr=new XMLHttpRequest();
+  xhr.open("GET","components/navbar.html",true);
+  xhr.onload=function(){
+    if(xhr.status===200||xhr.status===0){
+      document.getElementById("navbar").innerHTML=xhr.responseText;
+      window.initNavbar&&window.initNavbar();
+      window.initPage&&window.initPage();
+    }
+  };
+  xhr.send();
+})();
 </script>
 
 <section class="hero-section" id="heroSection">
@@ -66,7 +71,7 @@
   <div class="container flex-center">
     <div class="aff-item"><i class="fa-solid fa-award"></i> NAAC Grade 'A'</div>
     <div class="aff-divider"></div>
-    <div class="aff-item"><i class="fa-solid fa-university"></i> P.A.H. Solapur University</div>
+    <div class="aff-item"><i class="fa-solid fa-building-columns"></i> P.A.H. Solapur University</div>
     <div class="aff-divider"></div>
     <div class="aff-item"><i class="fa-solid fa-check-circle"></i> NCTE Recognized</div>
   </div>
@@ -76,9 +81,9 @@
   <div class="container flex-between">
     <div class="notification-label"><i class="fa-solid fa-bullhorn"></i> Latest Updates</div>
     <div class="marquee-container">
-      <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
-        B.Ed Admission 2025 Process has started • Final Exam Time Table Released • NAAC Visit Scheduled for Nov 2025
-      </marquee>
+      <div class="ticker-scroll">
+        <span>B.Ed Admission 2026 Process has started &nbsp;•&nbsp; Final Exam Time Table Released &nbsp;•&nbsp; NAAC Visit Scheduled for Nov 2026 &nbsp;•&nbsp; B.Ed Admission 2026 Process has started &nbsp;•&nbsp; Final Exam Time Table Released &nbsp;•&nbsp; NAAC Visit Scheduled for Nov 2026</span>
+      </div>
     </div>
   </div>
 </div>
@@ -113,7 +118,7 @@
           </a>
           <a href="career.html" class="card">
             <h3>Career</h3>
-            <p>Career oppurtunities</p>
+            <p>Career opportunities</p>
             <span class="card-link">Download &rarr;</span>
           </a>
           <a href="Results.html" class="card">
@@ -421,7 +426,7 @@
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; 2025 Kasturbai College of Education. All Rights Reserved.</p>
+      <p>&copy; 2026 Kasturbai College of Education. All Rights Reserved.</p>
     </div>
   </div>
 </footer>

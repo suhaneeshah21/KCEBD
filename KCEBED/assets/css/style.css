@@ -84,11 +84,6 @@ ul {
 .grid-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
 .grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
 
-.upcoming-events .grid-3 {
-  grid-template-columns: 1fr;
-  max-width: 100%;
-}
-.grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
 
 .top-bar {
   background-color: #222;
@@ -450,6 +445,26 @@ ul {
   overflow: hidden;
 }
 
+.ticker-scroll {
+  display: inline-block;
+  white-space: nowrap;
+  animation: tickerMove 30s linear infinite;
+}
+
+.ticker-scroll:hover {
+  animation-play-state: paused;
+}
+
+.ticker-scroll span {
+  color: #fff;
+  font-size: 14px;
+}
+
+@keyframes tickerMove {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 .affiliations-bar {
   border-bottom: 1px solid #ddd;
   padding: 15px 0;
@@ -604,7 +619,7 @@ a.notice-card { text-decoration: none; color: inherit; display: block; }
 
 .home-feature-grid__layout {
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 2fr 1fr;
   gap: 30px;
   align-items: start;
 }
@@ -669,9 +684,8 @@ a.notice-card { text-decoration: none; color: inherit; display: block; }
 }
 
 .academics-campus-inline {
-  margin-top: 30px;
-  padding-top: 60px;
-  border-top: 2px solid #e9eef5;
+  margin-top: 0;
+  padding-top: 0;
 }
 
 .inline-section-title {
@@ -809,7 +823,7 @@ a.notice-card { text-decoration: none; color: inherit; display: block; }
 
 .page-header {
   background: linear-gradient(rgba(0, 51, 102, 0.9), rgba(0, 51, 102, 0.8)),
-  url("../images/hero-banner.jpg");
+  url("../images/uni1.jpeg");
   background-size: cover;
   background-position: center;
   padding: 40px 0;
