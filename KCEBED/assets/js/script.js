@@ -151,6 +151,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // --- Visitor counter for homepage footer (client-side using localStorage) ---
+  try {
+    const visitorEl = document.getElementById('visitor-count');
+    if (visitorEl) {
+      // read current count (0 if not present)
+      const key = 'kcebed_visit_count';
+      let count = parseInt(localStorage.getItem(key) || '0', 10) || 0;
+      count += 1; // increment on each page load
+      localStorage.setItem(key, String(count));
+      visitorEl.textContent = count.toLocaleString();
+    }
+  } catch (err) {
+    console.warn('Visitor counter error', err);
+  }
+
   const courseLinks = document.querySelectorAll(".course-link[data-component]");
   const coursesContent = document.getElementById("courses-content");
 
@@ -505,31 +520,29 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ---------- Vertical marquee for Upcoming Events ----------
-  const marqueeContainer = document.querySelector('.vertical-marquee');
-  if (marqueeContainer) {
+  const marqueeContainers = document.querySelectorAll('.vertical-marquee');
+  marqueeContainers.forEach((marqueeContainer) => {
     const track = marqueeContainer.querySelector('.marquee-track');
-    if (track) {
-      // Duplicate content for seamless loop
+    if (!track) return;
+
+    if (!track.dataset.duplicated) {
       track.innerHTML = track.innerHTML + track.innerHTML;
-
-      // Calculate animation duration based on content height
-      const speedPxPerSec = 40; // adjust scroll speed (px per second)
-      const setMarqueeDuration = () => {
-        // original content height (half of duplicated)
-        const originalHeight = track.scrollHeight / 2 || 0;
-        const durationSec = Math.max(6, Math.round(originalHeight / speedPxPerSec));
-        track.style.animationDuration = durationSec + 's';
-      };
-
-      // Initial duration after layout settles
-      setTimeout(setMarqueeDuration, 100);
-      window.addEventListener('resize', setMarqueeDuration);
-
-      // Touch support: pause on touch
-      marqueeContainer.addEventListener('touchstart', () => { track.style.animationPlayState = 'paused'; });
-      marqueeContainer.addEventListener('touchend', () => { track.style.animationPlayState = 'running'; });
+      track.dataset.duplicated = 'true';
     }
-  }
+
+    const speedPxPerSec = 40; // adjust scroll speed (px per second)
+    const setMarqueeDuration = () => {
+      const originalHeight = track.scrollHeight / 2 || 0;
+      const durationSec = Math.max(6, Math.round(originalHeight / speedPxPerSec));
+      track.style.animationDuration = durationSec + 's';
+    };
+
+    setTimeout(setMarqueeDuration, 100);
+    window.addEventListener('resize', setMarqueeDuration);
+
+    marqueeContainer.addEventListener('touchstart', () => { track.style.animationPlayState = 'paused'; });
+    marqueeContainer.addEventListener('touchend', () => { track.style.animationPlayState = 'running'; });
+  });
 
   // ---------- Hero Section Image Slider ----------
   const sliderTrack = document.querySelector('.hero-slider-track');
