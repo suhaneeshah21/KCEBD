@@ -6,21 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="b17dff8a-b3be-4cdd-afdd-35669c7515e9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KCEBED/Results.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/Results.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KCEBED/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KCEBED/activities.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/activities.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KCEBED/alumini.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/alumini.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KCEBED/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/assets/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KCEBED/assets/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/assets/js/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KCEBED/career.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/career.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KCEBED/components/Events&amp;Notices/events&amp;notices.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/components/Events&amp;Notices/events&amp;notices.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KCEBED/components/UpcomingEvents/event-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/components/UpcomingEvents/event-detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KCEBED/components/UpcomingEvents/upcoming_events.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/components/UpcomingEvents/upcoming_events.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KCEBED/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/contact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KCEBED/courses.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/courses.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KCEBED/facilities.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/facilities.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KCEBED/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KCEBED/student_support.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/student_support.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KCEBED/assets/images/slider1.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/KCEBED/assets/images/slider2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/KCEBED/assets/images/slider3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/KCEBED/assets/images/slider4.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/KCEBED/assets/images/slider5.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/KCEBED/assets/images/slider6.svg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
