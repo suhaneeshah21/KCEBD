@@ -578,7 +578,6 @@ a.notice-card { text-decoration: none; color: inherit; display: block; }
   flex-direction: column;
   justify-content: center;
 
-  /* plain text date inserted above time (no boxed background) */
 }
 
 .event-date-text {
@@ -868,7 +867,6 @@ a.notice-card { text-decoration: none; color: inherit; display: block; }
   padding-left: 15px;
 }
 
-/* Sidebar Submenu Styles */
 .sidebar-menu li {
   position: relative;
 }

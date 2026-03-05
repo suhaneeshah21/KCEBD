@@ -1,14 +1,8 @@
-// ============================================================
-// initNavbar — defined at top-level so it is available as soon
-// as this script is parsed, even before DOMContentLoaded fires.
-// Called by the inline fetch-navbar snippet in every page.
-// ============================================================
 window.initNavbar = function () {
   const hamburger = document.getElementById("hamburger");
   const navMenu   = document.getElementById("navLinks");
   const dropdowns = document.querySelectorAll(".nav-item.dropdown");
 
-  // 1. Hamburger toggle
   if (hamburger && navMenu) {
     hamburger.addEventListener("click", () => {
       navMenu.classList.toggle("active");
@@ -19,7 +13,6 @@ window.initNavbar = function () {
     });
   }
 
-  // 2. Dropdown behaviour — hover on desktop, tap-to-open on mobile
   dropdowns.forEach((dropdown) => {
     const link = dropdown.querySelector("a.nav-link");
     if (!link) return;
@@ -41,7 +34,6 @@ window.initNavbar = function () {
     });
   });
 
-  // 3. Close mobile menu when a sub-menu link is tapped
   if (navMenu) {
     navMenu.querySelectorAll(".dropdown-menu a").forEach(a => {
       a.addEventListener("click", () => {
@@ -54,9 +46,6 @@ window.initNavbar = function () {
   }
 };
 
-// ============================================================
-// Helper — read ?section= query param or #hash from current URL
-// ============================================================
 function getRequestedComponent() {
   const params   = new URLSearchParams(window.location.search);
   const fromParam = params.get("section");
@@ -66,11 +55,6 @@ function getRequestedComponent() {
   return fromParam || fromHash || "";
 }
 
-// ============================================================
-// Helper — register same-page dropdown routing so clicking a
-// navbar dropdown item while already on that page loads the
-// section in the content area instead of reloading the page.
-// ============================================================
 function initDropdownRouting({ pageFile, linkSelector, setActive, loadSection }) {
   if (!window.__dropdownRoutingRegistry) window.__dropdownRoutingRegistry = {};
   window.__dropdownRoutingRegistry[pageFile] = { linkSelector, setActive, loadSection };
@@ -108,10 +92,6 @@ function initDropdownRouting({ pageFile, linkSelector, setActive, loadSection })
   }
 }
 
-// ============================================================
-// Generic sidebar initialiser — shared by every page that has
-// a [data-component] sidebar + a content-area div.
-// ============================================================
 function initSidebar({ linkSelector, contentId, pageFile }) {
   const links   = document.querySelectorAll(`${linkSelector}[data-component]`);
   const content = document.getElementById(contentId);
@@ -125,7 +105,6 @@ function initSidebar({ linkSelector, contentId, pageFile }) {
   const loadSection = (path) => {
     content.innerHTML = "<p style='padding:20px;color:#555;'>Loading…</p>";
 
-    // Use XMLHttpRequest so this works on file:// as well as http://
     const xhr = new XMLHttpRequest();
     xhr.open("GET", path, true);
     xhr.onload = function () {
@@ -154,7 +133,6 @@ function initSidebar({ linkSelector, contentId, pageFile }) {
     });
   });
 
-  // Honour ?section= param or first active link or first link
   const requested    = getRequestedComponent();
   const requestedLink = requested
     ? document.querySelector(`${linkSelector}[data-component="${requested}"]`)
@@ -173,17 +151,10 @@ function initSidebar({ linkSelector, contentId, pageFile }) {
   }
 }
 
-// ============================================================
-// Main page initialisation — runs after DOM is ready.
-// Also exposed as window.initPage so the inline navbar-fetch
-// snippet can call it immediately after injecting the navbar.
-// ============================================================
 function runPageInit() {
-  // Guard: only run once even if called multiple times
   if (window.__pageInited) return;
   window.__pageInited = true;
 
-  // ---- Scroll-to-top button ----
   const mybutton = document.getElementById("scrollToTop");
   if (mybutton) {
     window.addEventListener("scroll", () => {
@@ -197,7 +168,6 @@ function runPageInit() {
     });
   }
 
-  // ---- Visitor counter ----
   try {
     const visitorEl = document.getElementById("visitor-count");
     if (visitorEl) {
@@ -209,7 +179,6 @@ function runPageInit() {
     }
   } catch (e) { /* private browsing */ }
 
-  // ---- Sidebar pages ----
   initSidebar({ linkSelector: ".course-link",    contentId: "courses-content",         pageFile: "courses.html"       });
   initSidebar({ linkSelector: ".facility-link",  contentId: "facilities-content",      pageFile: "facilities.html"    });
   initSidebar({ linkSelector: ".support-link",   contentId: "student-support-content", pageFile: "student_support.html" });
@@ -219,7 +188,6 @@ function runPageInit() {
   initSidebar({ linkSelector: ".alumni-link",    contentId: "alumni-content",          pageFile: "alumini.html"       });
   initSidebar({ linkSelector: ".results-link",   contentId: "results-content",         pageFile: "Results.html"       });
 
-  // ---- Vertical marquee (Upcoming Events / Notices widgets) ----
   document.querySelectorAll(".vertical-marquee").forEach((container) => {
     const track = container.querySelector(".marquee-track");
     if (!track) return;
@@ -242,7 +210,6 @@ function runPageInit() {
     container.addEventListener("touchend",   () => { track.style.animationPlayState = "running"; }, { passive: true });
   });
 
-  // ---- Hero image slider ----
   const sliderTrack   = document.querySelector(".hero-slider-track");
   const slides        = document.querySelectorAll(".hero-slide");
   const prevBtn       = document.getElementById("sliderPrev");
@@ -336,11 +303,8 @@ function runPageInit() {
 
     startAuto();
   }
-} // end runPageInit
+}
 
-// Expose so the inline navbar-fetch snippet can call it
 window.initPage = runPageInit;
 
-// Fallback: if DOMContentLoaded fires before the navbar fetch resolved
-// (normal case when not cached), run page init now.
 document.addEventListener("DOMContentLoaded", runPageInit);

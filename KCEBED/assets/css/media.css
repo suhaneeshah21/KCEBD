@@ -178,7 +178,6 @@
     align-items: center;
   }
 
-  /* Smaller arrow buttons on mobile */
   .slider-arrow {
     width: 40px;
     height: 40px;
@@ -193,7 +192,6 @@
     right: 10px;
   }
 
-  /* Smaller dots on mobile */
   .slider-dot {
     width: 10px;
     height: 10px;
