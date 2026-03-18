@@ -6,15 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b17dff8a-b3be-4cdd-afdd-35669c7515e9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KCEBED/assets/css/media.css" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/assets/css/media.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KCEBED/activities.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/activities.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KCEBED/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/assets/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KCEBED/assets/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/assets/js/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KCEBED/components/Alumini/aluminireg.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/components/Alumini/aluminireg.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KCEBED/components/Courses/BED_Curriculum.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/components/Courses/BED_Curriculum.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KCEBED/components/Courses/BED_Perspectives.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/components/Courses/BED_Perspectives.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KCEBED/components/Courses/DSM.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/components/Courses/DSM.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KCEBED/components/Courses/MED.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/components/Courses/MED.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KCEBED/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/KCEBED/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +86,7 @@
       <workItem from="1770361237307" duration="1967000" />
       <workItem from="1770915768386" duration="2128000" />
       <workItem from="1771266071827" duration="4000" />
+      <workItem from="1773844180361" duration="677000" />
     </task>
     <servers />
   </component>
