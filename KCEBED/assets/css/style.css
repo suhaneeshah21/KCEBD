@@ -1227,8 +1227,23 @@ footer .container {
 
 .footer-bottom {
   border-top: 1px solid #333;
+  margin-top: 22px;
   padding-top: 20px;
-  text-align: center;
+  font-size: 14px;
+  opacity: 0.95;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-bottom-left,
+.footer-bottom-right {
+  margin: 0;
+}
+
+.footer-bottom-right {
+  text-align: right;
 }
 
 .vertical-marquee {
@@ -1268,6 +1283,16 @@ footer .container {
 }
 
 @media (max-width: 768px) {
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-bottom-right {
+    text-align: center;
+  }
 
   .page-layout {
     grid-template-columns: 1fr;
