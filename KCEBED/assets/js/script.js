@@ -46,6 +46,47 @@ window.initNavbar = function () {
   }
 };
 
+function updateVisitorCounter() {
+  try {
+    const visitorEl = document.getElementById("visitor-count");
+    if (!visitorEl) return;
+
+    const key = "kcebed_visit_count";
+    let count = parseInt(localStorage.getItem(key) || "0", 10) || 0;
+    count += 1;
+    localStorage.setItem(key, String(count));
+    visitorEl.textContent = count.toLocaleString();
+  } catch (e) {
+    // localStorage can be blocked in private browsing mode.
+  }
+}
+
+function loadSharedLayout() {
+  const headerSlot = document.getElementById("site-header");
+  const footerSlot = document.getElementById("site-footer");
+  if (!headerSlot && !footerSlot) return;
+
+  const xhr = new XMLHttpRequest();
+  xhr.open("GET", "components/layout.html", true);
+  xhr.onload = function () {
+    if (!(xhr.status === 200 || (xhr.status === 0 && xhr.responseText))) return;
+
+    const parser = document.createElement("div");
+    parser.innerHTML = xhr.responseText;
+
+    const header = parser.querySelector("#layout-header");
+    const footer = parser.querySelector("#layout-footer");
+
+    if (headerSlot && header) headerSlot.innerHTML = header.innerHTML;
+    if (footerSlot && footer) footerSlot.innerHTML = footer.innerHTML;
+
+    if (headerSlot) window.initNavbar && window.initNavbar();
+    if (footerSlot) updateVisitorCounter();
+    window.initPage && window.initPage();
+  };
+  xhr.send();
+}
+
 function getRequestedComponent() {
   const params   = new URLSearchParams(window.location.search);
   const fromParam = params.get("section");
@@ -168,16 +209,7 @@ function runPageInit() {
     });
   }
 
-  try {
-    const visitorEl = document.getElementById("visitor-count");
-    if (visitorEl) {
-      const key = "kcebed_visit_count";
-      let count = parseInt(localStorage.getItem(key) || "0", 10) || 0;
-      count += 1;
-      localStorage.setItem(key, String(count));
-      visitorEl.textContent = count.toLocaleString();
-    }
-  } catch (e) { /* private browsing */ }
+  updateVisitorCounter();
 
   initSidebar({ linkSelector: ".course-link",    contentId: "courses-content",         pageFile: "courses.html"       });
   initSidebar({ linkSelector: ".facility-link",  contentId: "facilities-content",      pageFile: "facilities.html"    });
@@ -307,4 +339,7 @@ function runPageInit() {
 
 window.initPage = runPageInit;
 
-document.addEventListener("DOMContentLoaded", runPageInit);
+document.addEventListener("DOMContentLoaded", () => {
+  loadSharedLayout();
+  runPageInit();
+});
